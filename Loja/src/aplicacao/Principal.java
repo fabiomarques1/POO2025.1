@@ -1,5 +1,7 @@
 package aplicacao;
 
+import dao.DAOFactory;
+import dao.FreteDAO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -24,8 +26,11 @@ public class Principal {
             System.out.println("Informe o valor do frete: ");
             frete.setValor(s.nextFloat());
             listaFrete.add(frete);
+            FreteDAO freteDAO = DAOFactory.criarFreteDAO();
+            freteDAO.inserir(frete);
         }
         
+        /*
         ArrayList<FormaPagamento> listaPag = new ArrayList<>();
         while (true) {
             System.out.println("Cadastro de Forma de Pagamento (-1 para SAIR): ");
@@ -66,7 +71,8 @@ public class Principal {
             venda.calcularValorFinal();
             System.out.println(venda);
             listaVenda.add(venda);
-        }
+        } */
+
         
     }
     
